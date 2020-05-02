@@ -1,0 +1,142 @@
+.Items{
+    background-color: rgb(174, 206, 207);
+    border: 3px solid green;
+    padding: 10px;
+    text-align: center;
+    /* height: 800px; */
+    min-height: 950px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: large;
+    display: block;
+}
+
+Input{
+    color: black;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: large;
+}
+
+.Add{
+    background-color: rgb(79, 80, 129);
+    color: #ccc;
+    padding-right: 10px;
+    height: 30px;
+    max-width: 50px;
+    cursor: pointer;
+}
+.Add:active {
+    cursor: progress;
+}  
+.AddDisable{
+        background-color: rgb(98, 99, 165);
+        /* background-color: red; */
+        border: 2px solid rgb(150, 6, 6);
+        color: #ccc;
+        padding-right: 10px;
+        border: white;
+        height: 30px;
+        cursor: no-drop;
+        max-width: 50px;
+}
+
+.Delete{
+    border: 3px rgb(54, 49, 49); 
+    color: black;  
+    height: 30px;
+    font-size: large;
+    background-color: rgb(199, 62, 62); 
+    border-radius: 10%; 
+    /* margin-left: auto; */
+    margin-right: 10px;
+}  
+
+.Delete:hover{
+  border: rgb(red, green, blue);
+}
+
+.Finish{
+    border: 3px rgb(54, 49, 49); 
+    color: black;  
+    height: 30px;
+    font-size: large;
+    background-color: rgb(82, 150, 88); 
+    border-radius: 10%;  
+}  
+ 
+
+.ItemsToShow{
+    height: 150px;
+    width: 350px; 
+    display: list-item; 
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgb(191, 202, 126);   
+}
+ 
+.ItemsToShow  ul h3,
+.ItemsToShow  ul p{
+    font-size: 30px;
+    text-align: center;
+    text-decoration: underline;
+    text-transform: capitalize;  
+}
+
+.ItemsToShow ul h4{
+    font-size: 20px;
+    text-align: left;
+    text-transform: lowercase;
+    font-style: italic; 
+}
+ 
+.ItemsToShowFinished{
+    height: 150px;
+    width: 350px; 
+    display: list-item; 
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgb(175, 175, 175);  
+}
+
+.ItemsToShowFinished  ul h3{
+    font-size: 30px;
+    text-align: center;
+    text-decoration: underline;
+    text-transform: capitalize; 
+    /* font-size: large; */
+}
+
+.ItemsToShowFinished ul h4{
+    font-size: 20px;
+    text-align: left;
+    text-transform: lowercase;
+    font-style: italic; 
+}
+ 
+.AddedNotification{
+    /* background-color: red; */
+    position: relative;
+    animation-name: AddedAnimation;
+    animation-duration: 4s;
+}
+
+
+@keyframes AddedAnimation { 
+    0%{
+        color:black;
+        border-radius: 2px white;
+        font-style: italic; 
+        font-size: medium;
+         /* left:100px; */
+        top:0px;
+    }
+ 
+    100%  {
+        color:black;
+        border-radius: 2px white;
+        font-style: italic; 
+        font-size: medium;
+        /* left:100px;  */
+        top:0px;  
+    }
+    
+  } 

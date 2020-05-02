@@ -1,0 +1,312 @@
+ 
+.TodoList{ 
+    min-height: 900px;
+ 
+    max-width: 90%;
+    display: table;
+    /* display: flex; */
+}
+.TodoList_List{
+    min-height: 900px; 
+    max-width: 90%;
+    display: flex;
+}
+
+.TodoList h2{
+    display: contents;
+}
+
+.TodoList_List h2{
+    display: contents;
+}
+
+.Lists{
+    width: 90%;
+    height: 98%;
+    /* color: red; */
+}
+.UnDONE{
+    /* grid-gap: 20px; */
+    grid-gap: 3%;
+    display:grid ;
+    grid-template-columns: 25% 25% 25%;
+    /* grid-template-columns: 350px 350px 350px; */
+    margin-left: 20px;    
+    /* max-width: 99%;  */
+    overflow: scroll;
+    /* height: 55%; */
+} 
+.UnDONE_List{
+    /* grid-gap: 50px; */
+    display:list-item ;
+    /* grid-template-columns: 370px 370px 370px; */
+    margin-left: 20px;    
+    /* max-width: 85%; */
+    overflow: hidden;
+    /* overflow: scroll; */
+    margin-top: 5%;
+    width: 45%;
+}
+
+.Delete{
+    border: 3px rgb(54, 49, 49); 
+    color: black;  
+    height: 30px;
+    font-size: medium;
+    background-color: rgb(199, 62, 62); 
+    border-radius: 10%; 
+    width: 26%;
+}  
+
+.Delete:hover{
+  border: rgb(red, green, blue);
+}
+
+
+.Finish , .EditItem{
+    border: 3px rgb(54, 49, 49); 
+    color: black;  
+    height: 30px;
+    font-size: medium;
+    background-color: rgb(82, 150, 88); 
+    border-radius: 10%;  
+    margin-left: 10px;
+    margin-right: 20px;
+    /* width: 23%; */
+}  
+  
+ul{
+    height: 150px;
+    width: 300px; 
+    /* display: list-item;  */
+    /* margin-left: auto;
+    margin-right: auto; */
+    background-color: rgb(185, 195, 191);  
+    background-color: rgb(147, 176, 148); 
+    border: 2px solid rgb(243, 238, 238);
+    border-radius: 15px;
+    /* (185, 195, 191) */
+    /* border-style: solid; */
+    padding: 20px;
+    list-style-type: none;  
+    
+}
+
+ul:hover, ul:active{
+
+    border: 4px solid rgb(45, 49, 44);
+    border-radius: 15px;
+}
+
+ul h3,
+ul p{
+    /* font-size: 30px; */
+    text-align: center;
+    text-decoration: underline;
+    text-transform: capitalize;  
+
+}
+ul h4{
+    /* font-size: 20px; */
+    text-align: left;
+    text-transform: lowercase;
+    font-style: italic; 
+    margin-left: 10px;
+}
+
+ul button{
+    margin-left: 10px;
+    margin-right: 10%;
+    width: 20%;
+
+} 
+ .DONE_List {
+    display:list-item ;
+    /* grid-template-columns: 370px 370px 370px; */
+    margin-left: 20px;    
+    /* max-width: 85%; */
+    overflow: hidden;
+    margin-top: 5%;
+
+    /* grid-template-columns: 50px; */
+    /* margin-left: 20px;    
+    max-width: 85%; */
+    
+} 
+.DONE_List  ul{
+    /* margin-left: auto;
+    margin-right: auto;
+    margin-top: 36px;
+    margin: auto;
+    max-width: 450px; */
+    
+    /* margin-left: auto;
+    margin-right: auto; */
+    background-color: rgb(185, 195, 191);  
+    border: 1px solid rgb(12, 11, 11);
+    border-radius: 5px;
+}
+  
+.DONE {
+    /* grid-gap: 20px; */
+    grid-gap: 2%;
+    display:grid ;
+    /* grid-template-columns: 350px 350px 350px; */
+    grid-template-columns: 25% 25% 20%;
+    margin-left: 20px;    
+    margin-top: 20px;
+    max-width: 99%;
+    overflow: scroll;
+}
+.DONE  ul{
+    /* margin-left: auto;
+    margin-right: auto;
+    margin-top: 36px;
+    margin: auto;
+    max-width: 450px; */
+    background-color: rgb(185, 195, 191);  
+    border: 1px solid rgb(12, 11, 11);
+    border-radius: 5px;
+}
+
+@media (max-width: 1000px){
+    .UnDONE{ 
+        display: list-item ;
+        margin-left: 20px;    
+        max-width: 85%;
+        overflow: scroll;
+    }
+    .DONE{ 
+        display: list-item ;  
+        margin-left: 20px;    
+        max-width: 85%;
+    } 
+}
+
+@media (max-width: 499px){
+    .UnDONE{
+        grid-gap: 50px;
+        display: list-item ; 
+        margin-left: 20px;    
+        max-width: 85%; 
+        overflow: scroll;
+    }
+    ul{
+        height: 128px;
+        width: 150px;
+        font-size: small;
+    } 
+    ul h3{
+        max-height: fit-content;
+    }
+    ul h4{
+        max-height: fit-content;
+        height: 17px;
+    }
+    ul button{
+        margin: 1px;
+        height: 17x;
+        width: 80px;
+        font-size: 12px;
+        margin-right: 22px;
+        margin-left: -27px;
+    }
+    .Finish ,.Delete {
+        height: 27x;
+        width: 80px;
+        font-size: 15px;
+        border-radius: 10%; 
+        /* margin: auto; */
+        /* margin-left: auto; */
+        /* margin-right: 20px; */
+    }
+}  
+
+.Switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+    margin-left: 20px;
+  }
+  
+  .Switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .Sliderround {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .Sliderround:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+    
+  }
+  
+  input:checked + .Sliderround {
+    background-color: #2196F3;
+  }
+  
+  input:focus + .Sliderround {
+    box-shadow: 0 0 1px #2196F3;
+  }
+  
+  input:checked + .Sliderround:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+  
+  /* Rounded sliders */
+  .Sliderround1 {
+    border-radius: 34px;
+  }
+  
+  .Sliderround1:before {
+    border-radius: 50%;
+  }
+ 
+
+  /*
+ *  STYLE for scroll bar
+ */
+
+/* .UnDONE::-webkit-scrollbar-track
+{
+    border-radius: 10px;
+    background-color:  #F5F5F5;
+} */
+
+/* .UnDONE::-webkit-scrollbar
+{
+    width: 12px;
+} */
+
+/* .UnDONE::-webkit-scrollbar-thumb
+{
+    border-radius: 10px; 
+    background-color: rgb(29, 25, 25);
+} */
+
+.Scroll  a {
+    color: white;
+    text-shadow: rgb(rgb(83, 81, 81), green, blue);
+}
