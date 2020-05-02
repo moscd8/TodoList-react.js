@@ -6,6 +6,8 @@ import {connect} from 'react-redux';
 import Navigation from './component/Navigation/Navigation '; 
 import TodoList from './component/TodoList/TodoList';
 import classes from './App.module.css';
+import Statistics from './component/Statistics/Statistics';
+
 const App = (props) => {
   let routes= (
     <Switch>
@@ -13,6 +15,8 @@ const App = (props) => {
       <Route path="/" exact render={(props)=> <Item  {...props}/>}/>      
       <Route path="/home" exact component={Home}/>
       <Route path="/todolist" exact component={TodoList}/> 
+      <Route path="/stas" render={(props)=> <Statistics  {...props}/>}/> 
+
       
       {/* <Route path="/" exact component={Home}/> */}
       <Redirect to="/"/> 

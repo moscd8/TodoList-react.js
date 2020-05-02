@@ -16,9 +16,12 @@ const  TodoList = props => {
     const [editItem, setEditItem] = useState();
     const [showBackdrop,setBackdrop] = useState();
     const [bodyBackroundClicked,setbodyBackroundClicked] = useState(); 
-    const [toggleUnDONEViewClass,settoggleUnDONEViewClass] = useState();
-    const [toggleDONEViewClass2,settoggleDONEViewClass2] = useState();
-    const [toggleListViewClass,settoggleListViewClass] = useState();
+    /** 0 is Table view , 1 is List */
+    const [toggleViewClass,settoggleViewClass] = useState({
+        list:0,
+        done:0,
+        undone:0
+    }); 
         
     let tempEditIteam=null;
     useEffect(() => {
@@ -71,42 +74,52 @@ const  TodoList = props => {
     }
     
     const toggleview = () => {
-        if(toggleUnDONEViewClass===classes.UnDONE)
-        {   console.log('1')
-            settoggleUnDONEViewClass(classes.UnDONE_List);
-            settoggleDONEViewClass2(classes.DONE_List);
-            settoggleListViewClass(classes.TodoList_List);
+        if(!toggleViewClass){
+            console.log('undifine')
+            settoggleViewClass({
+                list:0,
+                done:0,
+                undone:0
+            });
+            return;
+        }else if (toggleViewClass.list===0){
+            console.log('0')
+            settoggleViewClass({
+                list:1,
+                done:1,
+                undone:1
+            });
+
+        }else if (toggleViewClass.list===1){
+            console.log('1');
+            settoggleViewClass({
+                list:0,
+                done:0,
+                undone:0
+            });
+        }else{
+            console.log('error');            
+            settoggleViewClass({
+                list:0,
+                done:0,
+                undone:0
+            });
         }
-        else if(toggleUnDONEViewClass===classes.UnDONE_List)
-        {   console.log('2')
-            settoggleUnDONEViewClass(classes.UnDONE)
-            settoggleDONEViewClass2(classes.DONE)
-            settoggleListViewClass(classes.TodoList);
-            
-        }
-        else{
-            settoggleUnDONEViewClass(classes.UnDONE)            
-            settoggleDONEViewClass2(classes.DONE)
-            settoggleListViewClass(classes.TodoList);
-            console.log('Error')
-        }
-    };
+    };      
 
     const selectTodoItem =(selectTodoItem) => {
         console.log('selectTodoItem');
         console.log(selectTodoItem);
         props.selectedItem(selectTodoItem);
     }
-  
-
-
+    
     let finishedItems=[];
     let normalItems=[]; 
     let tempArray=[]; 
     let i=0; 
     let todoListLoading =null;
     if(props.todoList.loading){
-        todoListLoading =  <Spinner />;
+        todoListLoading =  (<p> Loading ...<Spinner /> </p>);
         console.log('Loading...')
     }else{
         
@@ -124,7 +137,7 @@ const  TodoList = props => {
         tempArray.map(item=>(
         item.finished ? (         
         finishedItems.push(
-        <ul key={item.id} >
+        <ul  className={classes.ULClass} key={item.id} >
             <h3> {item.title}</h3>
             <h4>{item.content}</h4> 
             <button  className={classes.Delete} onClick={()=> deleteItem(item.id)}>Remove</button> 
@@ -133,7 +146,7 @@ const  TodoList = props => {
           </ul>  
         )) : (
             normalItems.push(
-            <ul key={item.id}  onClick={()=> selectTodoItem(item.id)}>
+            <ul  className={classes.ULClass} key={item.id}  onClick={()=> selectTodoItem(item.id)}>
                 <h3> {item.title}</h3>
                 <h4>{item.content}</h4>
                 <button  className={classes.Delete} onClick={()=> deleteItem(item.id)}>Remove</button>
@@ -141,7 +154,7 @@ const  TodoList = props => {
                 <button  className={classes.EditItem} onClick={()=> editItemFunc(item)}>Edit</button>
                 {/* <button  className={classes.EditItem} onClick={()=> selectTodoItem(item)}>select</button> */}
                 
-            </ul> 
+            </ul>
             ))
      ));
     };
@@ -165,26 +178,22 @@ const  TodoList = props => {
     tempEditIteam = <EditTodoItem item={editItem} onUpdate={updateItemFunc} />
 
     return (
-        <div className={toggleUnDONEViewClass ? toggleListViewClass : classes.TodoList_List} >
-            {/* {todoListLoading} */}
-            {/* <p>editItem</p>   */} 
-        
-            <h2>Change View to {toggleUnDONEViewClass===classes.UnDONE ? 'List' : 'Table'}</h2>
+        <div className={classes.TodoList} >
+         
+            <p>Change View to {toggleViewClass.list===0 ? 'List' : 'Table'} </p>
             <label className={classes.Switch}>
             <input type="checkbox" onClick={() => toggleview()} value="Table" />
             <span className={classes.Sliderround}></span>
-            </label>
-
-            <div className={classes.Lists}>
-         
-                <div className={toggleUnDONEViewClass ? toggleUnDONEViewClass : (settoggleUnDONEViewClass(classes.UnDONE)) }> 
+            </label> 
+ 
+            <div className={ toggleViewClass.list ? classes.Lists_Lists : classes.Lists}>
+                <div className={toggleViewClass.undone ? classes.UnDONE_List : classes.UnDONE }>
                     {normalItems? <p> normalItems </p> && normalItems : null} 
                 </div>
             
-                <div className={toggleDONEViewClass2 ? toggleDONEViewClass2 : (settoggleDONEViewClass2(classes.DONE)) }>
+                <div className={toggleViewClass.done ? classes.DONE_List : classes.DONE}>            
                     {finishedItems? (<p> finishedItems </p> && finishedItems) : null} 
-                </div>
-
+                </div> 
             </div>
 
             <Backdrop show={showBackdropFUnc()}>

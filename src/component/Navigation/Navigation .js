@@ -41,7 +41,9 @@ const Navigation  = ()=> {
          <li>
             <Link to={ROUTES.TODOLIST}>My TODOLIST</Link>
           </li>
- 
+          <li>
+            <Link to={ROUTES.STAS}>Statistics</Link>
+          </li>
         </ul>
  
       </div>

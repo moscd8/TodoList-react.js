@@ -1,53 +1,106 @@
- 
-.TodoList{ 
-    min-height: 900px;
- 
-    max-width: 90%;
-    display: table;
-    /* display: flex; */
+/*TodoList_List:  warpper div */
+
+.TodoList{
+
+
 }
-.TodoList_List{
+
+/* .TodoList_List{
     min-height: 900px; 
     max-width: 90%;
     display: flex;
-}
-
-.TodoList h2{
+} */
+/* .TodoList h2{
     display: contents;
+} */
+
+.TodoList > p {
+    height: 50px;
+    border: 1px solid rgb(12, 11, 11); 
+    font-size: 2em;
+    margin-left: 1em;
+    margin-right: 1em;   
+}
+ 
+.Lists {
+    display: grid;
+    grid-template-columns: 45% 45% ;
+    grid-template-rows: 25%;
+    grid-gap: 1em; 
+
 }
 
-.TodoList_List h2{
-    display: contents;
+.Lists_Lists{
+    display: grid;
+    grid-template-columns: 45% 45% ;
+    /* grid-template-rows: 25%; */
+    grid-gap: 5em;
+}
+ 
+.Test{
+    background-color: blue;
+    padding: 1em;
+    color: white;
+    height: 300px;
 }
 
-.Lists{
-    width: 90%;
-    height: 98%;
-    /* color: red; */
+.Test:nth-child(odd){
+    background-color: teal;
 }
+
+
+
+/*UnDONE : Working On List  */
 .UnDONE{
-    /* grid-gap: 20px; */
-    grid-gap: 3%;
     display:grid ;
-    grid-template-columns: 25% 25% 25%;
-    /* grid-template-columns: 350px 350px 350px; */
-    margin-left: 20px;    
-    /* max-width: 99%;  */
-    overflow: scroll;
-    /* height: 55%; */
+    grid-gap: 1em;
+    /* grid-template-columns: repeat(2,0.75fr); */
+    grid-template-columns: 1fr 1fr;
+
+    margin-left: 2em;    
+    /* grid-auto-rows: minmax(100px,auto);
+    grid-auto-columns: minmax(100px,auto); */
 } 
+
 .UnDONE_List{
-    /* grid-gap: 50px; */
     display:list-item ;
-    /* grid-template-columns: 370px 370px 370px; */
-    margin-left: 20px;    
-    /* max-width: 85%; */
-    overflow: hidden;
-    /* overflow: scroll; */
-    margin-top: 5%;
-    width: 45%;
+    margin-left: 2em; 
+    margin-top: 1em;       
+    list-style-type: none;  
+}
+/*END UnDONE */
+
+
+/*DONE:  Completed List */
+.DONE {
+    display:grid ;
+    grid-gap: 1em;
+    /* grid-template-columns: repeat(2,0.5fr); */
+    grid-template-columns: 1fr ;
+    margin-left: 5em;    
 }
 
+.DONE  .ULClass{ 
+    background-color: rgb(185, 195, 191);  
+    border: 2px solid rgb(12, 11, 11);
+    border-radius: 15px; 
+}
+
+.DONE_List {
+    display:list-item ;  
+    margin-top: 1em ; 
+    list-style-type: none;  
+} 
+
+.DONE_List  .ULClass{ 
+    background-color: rgb(185, 195, 191);  
+    border: 1px solid rgb(12, 11, 11);
+    border-radius: 15px; 
+}
+  
+/*DONE end */
+
+/* BUTTONS */
 .Delete{
     border: 3px rgb(54, 49, 49); 
     color: black;  
@@ -62,114 +115,139 @@
   border: rgb(red, green, blue);
 }
 
-
 .Finish , .EditItem{
     border: 3px rgb(54, 49, 49); 
     color: black;  
     height: 30px;
     font-size: medium;
     background-color: rgb(82, 150, 88); 
-    border-radius: 10%;  
-    margin-left: 10px;
-    margin-right: 20px;
-    /* width: 23%; */
+    border-radius: 10%;   
+    width: 20%; 
 }  
-  
-ul{
-    height: 150px;
-    width: 300px; 
-    /* display: list-item;  */
-    /* margin-left: auto;
-    margin-right: auto; */
-    background-color: rgb(185, 195, 191);  
+
+/* BUTTONS END */
+ 
+
+
+.ULClass{ 
+    width: 300px;   
     background-color: rgb(147, 176, 148); 
     border: 2px solid rgb(243, 238, 238);
-    border-radius: 15px;
-    /* (185, 195, 191) */
-    /* border-style: solid; */
+    border-radius: 15px; 
     padding: 20px;
     list-style-type: none;  
-    
 }
 
-ul:hover, ul:active{
+.ULClass:hover, .ULClass:active{
 
     border: 4px solid rgb(45, 49, 44);
     border-radius: 15px;
 }
 
-ul h3,
-ul p{
-    /* font-size: 30px; */
+.ULClass h3,
+.ULClass p{
+    margin-top: 0;
+    font-size: 1.75em;
     text-align: center;
     text-decoration: underline;
     text-transform: capitalize;  
-
 }
-ul h4{
-    /* font-size: 20px; */
+.ULClass h4{
+    font-size: 1.5em;
     text-align: left;
     text-transform: lowercase;
     font-style: italic; 
     margin-left: 10px;
 }
-
-ul button{
+.ULClass button{
     margin-left: 10px;
-    margin-right: 10%;
-    width: 20%;
-
+    margin-right: 1em;
+    max-width: 25%;
 } 
- .DONE_List {
-    display:list-item ;
-    /* grid-template-columns: 370px 370px 370px; */
-    margin-left: 20px;    
-    /* max-width: 85%; */
-    overflow: hidden;
-    margin-top: 5%;
 
-    /* grid-template-columns: 50px; */
-    /* margin-left: 20px;    
-    max-width: 85%; */
-    
-} 
-.DONE_List  ul{
-    /* margin-left: auto;
-    margin-right: auto;
-    margin-top: 36px;
-    margin: auto;
-    max-width: 450px; */
-    
-    /* margin-left: auto;
-    margin-right: auto; */
-    background-color: rgb(185, 195, 191);  
-    border: 1px solid rgb(12, 11, 11);
-    border-radius: 5px;
-}
-  
+
+@media (max-width: 1300px){
 .DONE {
-    /* grid-gap: 20px; */
-    grid-gap: 2%;
     display:grid ;
-    /* grid-template-columns: 350px 350px 350px; */
-    grid-template-columns: 25% 25% 20%;
-    margin-left: 20px;    
-    margin-top: 20px;
-    max-width: 99%;
-    overflow: scroll;
-}
-.DONE  ul{
-    /* margin-left: auto;
-    margin-right: auto;
-    margin-top: 36px;
-    margin: auto;
-    max-width: 450px; */
-    background-color: rgb(185, 195, 191);  
-    border: 1px solid rgb(12, 11, 11);
-    border-radius: 5px;
+    grid-gap: 1em;
+    /* grid-template-columns: repeat(2,0.5fr); */
+    grid-template-columns: 1fr;
+    margin-left: 5em;    
 }
 
-@media (max-width: 1000px){
+.TodoList > p {
+    display: none;
+}
+.Sliderround{
+    display: none;
+}
+.Switch{
+    display: none;
+}
+ 
+}
+
+@media (max-width: 1300px){
+    .Lists{
+        grid-template-columns: auto;
+        display:list-item;
+    }
+    
+.ULClass{ 
+    width: 200px;
+    height: 170px;   
+    
+}
+.ULClass button{
+    margin-left: -4px;
+    margin-right: 1.5em;
+    max-width: 40%;
+    font-size: small;
+} 
+
+.Delete{ 
+    width: 34%;
+    margin-left: -5px;
+}  
+
+.ULClass h3,
+.ULClass p{
+    margin-bottom: 0;
+    margin-top: 0;
+ }
+ 
+.ULClass h4{
+    margin-top: 0;
+ }
+ 
+
+ .DONE {
+     margin-left: 1.5em;
+     display: list-item;
+     grid-template-columns: none;
+    list-style-type: none;  
+}
+
+.UnDONE{
+    margin-left: 1.5em;
+    display: list-item;
+    grid-template-columns: none;
+    list-style-type: none;  
+}
+.ULClass{ 
+    width: 200px;   
+    background-color: rgb(147, 176, 148); 
+    border: 2px solid rgb(243, 238, 238);
+    border-radius: 15px; 
+    padding: 20px;
+    list-style-type: none;  
+}
+ 
+}
+
+
+
+/* @media (max-width: 1000px){
     .UnDONE{ 
         display: list-item ;
         margin-left: 20px;    
@@ -181,9 +259,9 @@ ul button{
         margin-left: 20px;    
         max-width: 85%;
     } 
-}
+} */
 
-@media (max-width: 499px){
+/* @media (max-width: 499px){
     .UnDONE{
         grid-gap: 50px;
         display: list-item ; 
@@ -193,8 +271,7 @@ ul button{
     }
     ul{
         height: 128px;
-        width: 150px;
-        font-size: small;
+        width: 150px; 
     } 
     ul h3{
         max-height: fit-content;
@@ -215,19 +292,17 @@ ul button{
         height: 27x;
         width: 80px;
         font-size: 15px;
-        border-radius: 10%; 
-        /* margin: auto; */
-        /* margin-left: auto; */
-        /* margin-right: 20px; */
+        border-radius: 10%;  
     }
-}  
+}   */
 
 .Switch {
     position: relative;
     display: inline-block;
     width: 60px;
     height: 34px;
-    margin-left: 20px;
+    margin-left: 35px;
+    
   }
   
   .Switch input { 
