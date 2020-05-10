@@ -1,34 +1,51 @@
-import React  from 'react';
+import React, { useEffect }  from 'react';
 import Item from './component/Item/Item';
-import Home from './component/Home/Home';
+// import Home from './component/Home/Home';
+import Home2 from './component/Home2/Home2';
 import {Route, Switch ,Redirect,BrowserRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
 import Navigation from './component/Navigation/Navigation '; 
 import TodoList from './component/TodoList/TodoList';
 import classes from './App.module.css';
 import Statistics from './component/Statistics/Statistics';
+import Auth from './component/Auth/Auth';
+import Logout from './component/Auth/Logout/Logout'
+import * as actions from './store/actions/auth';
 
 const App = (props) => {
+  
+  useEffect(() => {
+    props.onTryAutoSignup();
+  }, [props.onTryAutoSignup])
+
+
   let routes= (
     <Switch>
-      {/* <Route path="/auth" render={(props)=> <Auth {...props}/>}/>  */}
-      <Route path="/" exact render={(props)=> <Item  {...props}/>}/>      
-      <Route path="/home" exact component={Home}/>
-      <Route path="/todolist" exact component={TodoList}/> 
-      <Route path="/stas" render={(props)=> <Statistics  {...props}/>}/> 
+      <Route path="/auth" exact render={(props)=> <Auth  {...props}/>}/> 
+      {/* <Route path="/" exact render={(props)=> <Item  {...props}/>}/>       */}
+      <Route path="/home" exact component={Home2}/>
+      {/* <Route path="/todolist" exact component={TodoList}/>  */}
+      {/* <Route path="/stas" render={(props)=> <Statistics  {...props}/>}/>  */}
+  </Switch>
+  );
 
-      
-      {/* <Route path="/" exact component={Home}/> */}
+  if(props.isAuthenticated){
+  routes= (
+    <Switch>
+      {/* <Route path="/auth" exact render={(props)=> <Auth  {...props}/>}/>  */}
+      <Route path="/" exact render={(props)=> <Item  {...props}/>}/>      
+      <Route path="/home" exact component={Home2}/>
+      <Route path="/todolist" exact component={TodoList}/> 
+      <Route path="/stas" render={(props)=> <Statistics  {...props}/>}/>
+      <Route path="/logout" render={(props)=> <Logout  {...props}/>}/> 
       <Redirect to="/"/> 
   </Switch>
 
   );
+}
  
   return (
     <div className={classes.App}> 
-         {/* <Switch> 
-            {routes}
-         </Switch>    */}
          <BrowserRouter>
            <Navigation/>
            <hr />
@@ -42,16 +59,17 @@ const App = (props) => {
 const mapStateToProps = state => {
   return {
     item: state.item,
-    todoList: state.todoList
+    todoList: state.todoList,
+    isAuthenticated: state.auth.token!==null
   }
 };
 
-// const mapDispatchToProps = dispatch => {
-//   return {
-//     onTryAutoSignup: () => dispatch(actions.authCheckState())
-//   }
-// };
+const mapDispatchToProps = dispatch => {
+  return {
+    onTryAutoSignup: () => dispatch(actions.authCheckState())
+  }
+};
 
 
-export default connect(mapStateToProps,null)(App); 
+export default connect(mapStateToProps,mapDispatchToProps)(App); 
 // export default withRouter((App)); 

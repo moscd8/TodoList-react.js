@@ -7,8 +7,8 @@ import image3 from '../../shered/3.jpg';
 import image4 from '../../shered/4.jpg';
 import image5 from '../../shered/5.jpg';
 
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import "./node_modules/slick-carousel/slick/slick.css";
+import "./node_modules/slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import classes from './Home.module.css';
 // import SpotifyPlayer from 'react-spotify-player';
@@ -18,7 +18,7 @@ import {connect } from 'react-redux';
 // import { faHome } from "@fortawesome/free-solid-svg-icons";
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import 'font-awesome/css/font-awesome.min.css';
-import 'font-awesome/css/font-awesome.min.css';
+import './node_modules/font-awesome/css/font-awesome.min.css';
 
 
 const Home = (props) => {

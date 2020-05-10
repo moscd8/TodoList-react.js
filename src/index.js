@@ -8,14 +8,16 @@ import thunk from 'redux-thunk';
 import {Provider } from 'react-redux';
 import {BrowserRouter} from 'react-router-dom';
 import todoListReducer from './store/reducers/todoList';
+import authReducer from './store/reducers/auth';
 
  const composeEnhancers = (process.env.NODE_ENV ==='development' ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : null) || compose;
 
-const rootReducer = combineReducers({
-  todoList : todoListReducer
-  // ,
-  // auth: authReducer
+
+ const rootReducer = combineReducers({
+  todoList : todoListReducer,
+  auth: authReducer
 })
+ 
 // const initState = {
 //   item: 'temp item'
 // };

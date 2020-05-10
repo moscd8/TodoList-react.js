@@ -111,13 +111,15 @@ const  Item = props => {
 
 const mapStateToProps = state => {
   return {
-    todoList: state.todoList
+    todoList: state.todoList,
+    auth : state.auth
   }
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    onItemAdded : (todoList) => dispatch(actions.addtodoItem(todoList))
+    onItemAdded : (todoList) => dispatch(actions.addtodoItem(todoList)),
+    auth : (email,password,isSignup) => dispatch(actions.auth(email,password,isSignup)) 
     // ,
     // deleteItem : (itemId) => dispatch(actions.deletetodoItem(itemId)),
     // finishItem : (itemId) => dispatch(actions.finishtodoItem(itemId))

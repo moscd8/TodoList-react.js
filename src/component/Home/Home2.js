@@ -9,8 +9,8 @@ import image5 from '../../shered/5.jpg';
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Slider from "react-slick";
-import classes from './Home.module.css';
+// import Slider from "react-slick";
+import classes from './Home2.module.css';
 // import SpotifyPlayer from 'react-spotify-player';
 
 import {connect } from 'react-redux'; 
@@ -21,28 +21,8 @@ import {connect } from 'react-redux';
 import 'font-awesome/css/font-awesome.min.css';
 
 
-const Home = (props) => {
-    // let slideIndex = 1;
-    // showDivs(slideIndex);
-
-    // const plusDivs = (n)=> {
-    //     showDivs(slideIndex += n);
-
-    // }
-    // function showDivs(n) {
-    //     var i;
-    //     var x = document.getElementsByClassName("Slides");
-    //     if (n > x.length) {slideIndex = 1}
-    //     if (n < 1) {slideIndex = x.length}
-    //     // for (i = 0; i < x.length; i++) {
-    //     //   x[i].style.display = "none";  
-    //     // }
-    //     // x[slideIndex-1].style.display = "block";  
-    //   }
-
-    // const [token, setToken] = useState('');
- 
-
+const Home2 = (props) => {
+      
     console.log('home');
     console.log(props.todoList.selectedItem);
     let selectedItemToRender = null;
@@ -136,7 +116,7 @@ const Home = (props) => {
             <div className={classes.Scroll}>
                  <a href="#spot">Go To Player</a>    
             </div>
-
+{/* 
             <Slider {...settings} >
             
             <span>
@@ -155,21 +135,15 @@ const Home = (props) => {
             <img className={classes.Slides} src={image3} alt="Logo" />    
             {selectedItemToRender}
             </span> 
-            {/* <div className={classes.TextImage2}> */}
             <span>
             <img className={classes.Slides} src={image4} alt="Logo" />                
             {selectedItemToRender}
-            {/* <div className={classes.TextImage}>
-            <p id='Text'>Some Text Some Text </p>
-            123
-            </div> */}
             </span>
-            {/* </div> */}
             <span>
             <img className={classes.Slides} src={image5} alt="Logo" />                
             {selectedItemToRender}
             </span>
-
+            </Slider> */}
         
                 {/* <div className={classes.Img}>
                 {selectedItemToRender}
@@ -196,8 +170,36 @@ const Home = (props) => {
                 <img className={classes.Slides} src={image5} alt="Logo" />
                 </div> */}
                 
+            <div className={classes.Slide_Container}>
+                <div className={classes.Image_Container}>
+
+                <span>
+                <img className={classes.Slider_image} src={image1} alt="Logo" /> 
+                {selectedItemToRender}
+                <p id='Text'>Some Text Some Text </p>
+                </span>
+
+                <span>
+                <img className={classes.Slider_image} src={image2} alt="Logo"/>
+                {selectedItemToRender}
+                </span>
                 
-            </Slider>
+                <span>
+                <img className={classes.Slider_image} src={image3} alt="Logo" />    
+                {selectedItemToRender}
+                </span> 
+                <span>
+                <img className={classes.Slider_image} src={image4} alt="Logo" />                
+                {selectedItemToRender}
+                </span>
+                <span>
+                <img className={classes.Slider_image} src={image5} alt="Logo" />                
+                {selectedItemToRender}
+                </span>
+
+                </div>    
+            </div>
+            
             <div className={classes.Spotify} id={'spot'}>
             <center>
             <iframe src="https://open.spotify.com/embed/playlist/7yZSoJAJEf3YaNO5XMIKCt" width="800px" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
@@ -208,13 +210,7 @@ const Home = (props) => {
             <div className={classes.ScrollHome}>
                 <a href="#home">GO Back Home</a> 
             </div>
-            
-{/* <SpotifyPlayer
-  uri="spotify:album:1TIUsv8qmYLpBEhvmBmyBk"
-  size={size}
-  view={view}
-  theme={theme}
-/> */}
+ 
             </div>
     );
 }; 
@@ -225,16 +221,5 @@ const mapStateToProps = state => {
     };
   };
 
-export default connect(mapStateToProps,null)(Home);
-
-
-/*
-  const mapStateToProps = state => {
-    return {
-      todoList: state.todoList 
-    };
-  };
-  
-
-export default withRouter(connect(mapStateToProps,mapDispatchToProps)(withErrorHandler(TodoList,axios)));
-*/
+export default connect(mapStateToProps,null)(Home2);
+ 

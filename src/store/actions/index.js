@@ -7,3 +7,12 @@ export {
     selectedItem
 }
 from './todoList';
+
+
+export {
+    auth,
+    setAuthRedirectPath,
+    authCheckState,
+    logout
+}
+from './auth';

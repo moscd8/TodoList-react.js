@@ -23,3 +23,14 @@ export const DELETE_TODOITEM_FAILED = 'DELETE_TODOITEM_FAILED';
 export const FETCH_SELECTED_ITEM = 'FETCH_SELECTED_ITEM';
 
 
+
+
+
+//AUTh
+
+export const AUTH_START = 'AUTH_START';
+export const AUTH_SUCCESS = 'AUTH_SUCCESS';
+export const AUTH_FAIL = 'AUTH_FAIL';
+export const SET_REDIRECT_PATH = 'SET_REDIRECT_PATH';
+
+export const AUTH_LOGOUT = 'AUTH_LOGOUT';
