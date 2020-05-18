@@ -42,7 +42,7 @@ const App = (props) => {
       <Route path="/todolist" exact component={TodoList}/> 
       <Route path="/stas" render={(props)=> <Statistics  {...props}/>}/>
       <Route path="/logout" render={(props)=> <Logout  {...props}/>}/>       
-      <Route path="/"  exact render={(props)=> <Landing  {...props}/>}/>
+      <Route path="/"  exact render={(props)=> <Home  {...props}/>}/>
       <Redirect to="/"/> 
   </Switch>
 

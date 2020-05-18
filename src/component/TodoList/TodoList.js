@@ -175,7 +175,7 @@ const  TodoList = props => {
 
     // }
 
-    tempEditIteam = <EditTodoItem item={editItem} onUpdate={updateItemFunc} />
+    tempEditIteam = editItem ? (<EditTodoItem item={editItem} onUpdate={updateItemFunc} />) :null;
     console.log("The value of tempEditIteam is "); 
 
     console.log(editItem); 
