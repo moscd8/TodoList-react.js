@@ -48,10 +48,10 @@ const  Item = props => {
         setNewItemTitle('');
         setNewItemContent(''); 
         props.todoList.loading= true;
-        setItemAdded((
-          <div className={classes.AddedNotification}> 
-              <p>Added</p>
-          </div>));
+        // setItemAdded((
+        //   <div className={classes.AddedNotification}> 
+        //       <p>Added</p>
+        //   </div>));
         props.onItemAdded(tempItem);
       }
  
@@ -72,20 +72,31 @@ const  Item = props => {
          
         <div className={classes.Items}> 
         <h1> Add an Item</h1> 
-        <input
+        <div className={classes.Form}>
+        <input className={classes.Input}
             type="text" 
             placeholder="item title" 
-            value={newItemTitle ? newItemTitle.value : ''}
+            // value={newItemTitle ? newItemTitle.value : ''}
+            value={newItemTitle.value}
             onChange={event => setNewItemTitle({id:uuid() ,value: event.target.value})}
         />
-        <input 
+        {/* <input className={classes.Input_Content}
             type="text" 
             placeholder="item content" 
-            value={newItemContent ? newItemContent : ''}
+            // value={newItemContent ? newItemContent : ''}
+            value={newItemContent}          
+            onChange={event => setNewItemContent(event.target.value)}
+        /> */}
+         <textarea  className={classes.Input_Content}
+            cols="40"
+            rows="10"
+            placeholder="item content" 
+            // value={newItemContent ? newItemContent : ''}
+            value={newItemContent}          
             onChange={event => setNewItemContent(event.target.value)}
         />
         <button className={(newItemTitle.value !== '' && newItemContent !== '')  ? classes.Add : classes.AddDisable } onClick={addItem }>  Add </button>  
-
+        </div>
         <Backdrop show={showBackdropFunc() } >
              {todoListLoading}
         </Backdrop>  
@@ -118,8 +129,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onItemAdded : (todoList) => dispatch(actions.addtodoItem(todoList)),
-    auth : (email,password,isSignup) => dispatch(actions.auth(email,password,isSignup)) 
+    onItemAdded : (todoItem) => dispatch(actions.addtodoItem(todoItem)),
+    onAuth : (email,password,isSignup) => dispatch(actions.auth(email,password,isSignup)) 
     // ,
     // deleteItem : (itemId) => dispatch(actions.deletetodoItem(itemId)),
     // finishItem : (itemId) => dispatch(actions.finishtodoItem(itemId))

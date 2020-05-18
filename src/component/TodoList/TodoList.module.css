@@ -244,7 +244,14 @@
 }
  
 }
+/* 
+.Exam{
+    color: red;
+} */
 
+#Exam{
+    color: red;
+}
 
 
 /* @media (max-width: 1000px){

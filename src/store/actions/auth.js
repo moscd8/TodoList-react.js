@@ -31,7 +31,7 @@ export const setAuthRedirectPath = (path) => {
 
 
 
-export const auth = (email,password, isSightup) => {
+export const auth = (email,password, isSignup) => {
     return dispatch => {
         dispatch(authStart());
         const authData2 = {
@@ -39,8 +39,10 @@ export const auth = (email,password, isSightup) => {
             password: password,
             returnSecureToken: false
         };
+        console.log('auth: isSignup');
+        console.log(isSignup);
         let url ='https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCo1NYApckn2kNaej3yHcm8pYRCZyDIIRc';
-        if(!isSightup){
+        if(!isSignup){
             url='https://identitytoolkit.googleapis.com//v1/accounts:signInWithPassword?key=AIzaSyCo1NYApckn2kNaej3yHcm8pYRCZyDIIRc';
         }
 
@@ -48,17 +50,22 @@ export const auth = (email,password, isSightup) => {
         .then(response  => {
             console.log('response:');
             console.log(response);
-            const expirationDate= new Date(new Date().getDate()+ response.data.expiresIn * 1000); //convert from milisec to time in sec
+            console.log(response.data.expiresIn);
+            let expiresIn =  response.data.expiresIn ? (new Date().getDate()+ response.data.expiresIn * 1000) :
+            (new Date().getDate()+ 3600);
+            const expirationDate= new Date(expiresIn); //convert from milisec to time in sec
+            console.log(expirationDate);
             localStorage.setItem('token', response.data.idToken);
             localStorage.setItem('expirationDate', expirationDate);
             localStorage.setItem('userId', response.data.localId);            
             dispatch(authSuccess(response.data.localId,response.data.idToken));
-            dispatch(checkAuthTimeout(response.data.expiresIn));            
+            // dispatch(checkAuthTimeout(response.data.expiresIn ? response.data.expiresIn : 60 ));   
+            dispatch(checkAuthTimeout(response.data.expiresIn ? response.data.expiresIn : new Date(new Date().getDate() + 3600)));   
         })
         .catch(error=> {
             console.log('error');
             console.log(error);
-            dispatch(authFail(error.response.data.error));
+            dispatch(authFail(error.response.data.error.message));
         })
 
     }
@@ -82,7 +89,7 @@ export const checkAuthTimeout = (expiresInTime) => {
     return dispatch=> {
         setTimeout(() => {
            dispatch(logout()); 
-        }, expiresInTime * 1000);
+        }, expiresInTime*1000);
     }
 };
 
@@ -103,9 +110,10 @@ export const authCheckState = () => {
             else{
                 const userId = localStorage.getItem('userId');
                 //
+                console.log('expirationDate is not expiared ');
 
                 dispatch(authSuccess(token,userId));
-                dispatch(checkAuthTimeout((expirationDate.getTime()- new Date().getTime())/1000) );
+                dispatch(checkAuthTimeout(( Math.abs(expirationDate.getTime()- new Date().getTime())/1000)));
             }
         }
     }

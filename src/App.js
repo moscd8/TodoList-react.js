@@ -1,7 +1,7 @@
 import React, { useEffect }  from 'react';
 import Item from './component/Item/Item';
 // import Home from './component/Home/Home';
-import Home2 from './component/Home2/Home2';
+import Home from './component/Home/Home';
 import {Route, Switch ,Redirect,BrowserRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
 import Navigation from './component/Navigation/Navigation '; 
@@ -23,7 +23,7 @@ const App = (props) => {
     <Switch>
       <Route path="/auth" exact render={(props)=> <Auth  {...props}/>}/> 
       {/* <Route path="/" exact render={(props)=> <Item  {...props}/>}/>       */}
-      <Route path="/home" exact component={Home2}/>
+      <Route path="/home" exact component={Home}/>
       {/* <Route path="/todolist" exact component={TodoList}/>  */}
       {/* <Route path="/stas" render={(props)=> <Statistics  {...props}/>}/>  */}
   </Switch>
@@ -34,7 +34,7 @@ const App = (props) => {
     <Switch>
       {/* <Route path="/auth" exact render={(props)=> <Auth  {...props}/>}/>  */}
       <Route path="/" exact render={(props)=> <Item  {...props}/>}/>      
-      <Route path="/home" exact component={Home2}/>
+      <Route path="/home" exact component={Home}/>
       <Route path="/todolist" exact component={TodoList}/> 
       <Route path="/stas" render={(props)=> <Statistics  {...props}/>}/>
       <Route path="/logout" render={(props)=> <Logout  {...props}/>}/> 

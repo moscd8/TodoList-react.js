@@ -2,17 +2,17 @@ import * as actionTypes from './actionTypes';
 import axios from '../../axios-orders';
 import Item from '../../component/Item/Item';
 
-export const addtodoItem = (todoList)=> { //V
+export const addtodoItem = (todoItem)=> { //V
 console.log('addtodoItem');
-console.log(todoList); 
+console.log(todoItem); 
 
 return dispatch => {
-    axios.post('https://todolist-80427.firebaseio.com/todolist.json',todoList)
+    axios.post('https://todolist-80427.firebaseio.com/todolist.json',todoItem)
     .then(response => {
     console.log(response.data);
     let id= response.data.name;
-    todoList.id=id; 
-    dispatch(addtodoItemSuccess(todoList));
+    todoItem.id=id; 
+    dispatch(addtodoItemSuccess(todoItem));
     })
     .catch(error => {
     console.log("Fail error:")

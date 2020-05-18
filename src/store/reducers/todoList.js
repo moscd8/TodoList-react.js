@@ -18,8 +18,8 @@ const initialState = {
 // };
 
 
-const AddTodoItemSuccessFunc = (state,action) => {  //V
-    console.log('AddTodoItemSuccessFunc');
+const addTodoItemSuccessFunc = (state,action) => {  //V
+    console.log('addTodoItemSuccessFunc');
     const newList= [...state.todoList,action.todoItem];
     return {
         ...state,
@@ -27,6 +27,7 @@ const AddTodoItemSuccessFunc = (state,action) => {  //V
         loading:false
     };
 };
+
 const AddTodoItemFailedFunc = (state,action) => {  //V
     console.log('AddTodoItemFailedFunc');
     // const newList= [...state.todoList,action.todoItem];
@@ -199,7 +200,7 @@ const FetchSelectedTodoItemFunc = (state,action) => {  //V
 const reducer = (state= initialState,action) => {
     switch (action.type) {
         /* ADD */  
-        case actionTypes.ADD_TODOITEM_SUCCESS: return AddTodoItemSuccessFunc(state,action);  //V
+        case actionTypes.ADD_TODOITEM_SUCCESS: return addTodoItemSuccessFunc(state,action);  //V
         case actionTypes.ADD_TODOITEM_FAILED: return AddTodoItemFailedFunc(state,action);  //V
 
         /* DELETE */            

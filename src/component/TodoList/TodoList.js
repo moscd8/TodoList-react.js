@@ -29,9 +29,9 @@ const  TodoList = props => {
     },[props.todoList]);
 
     useEffect(() => {  
-        props.onFetchTodoList();
-    },[]);
- 
+        props.onFetchTodoList(); 
+    },[]); 
+
     const  deleteItem = (idToRemove) => {
         console.log('deleteItem'); 
         props.todoList.loading=true;
@@ -178,8 +178,7 @@ const  TodoList = props => {
     tempEditIteam = <EditTodoItem item={editItem} onUpdate={updateItemFunc} />
 
     return (
-        <div className={classes.TodoList} >
-         
+        <div className={classes.TodoList} > 
             <p>Change View to {toggleViewClass.list===0 ? 'List' : 'Table'} </p>
             <label className={classes.Switch}>
             <input type="checkbox" onClick={() => toggleview()} value="Table" />

@@ -10,10 +10,26 @@
     display: block;
 }
 
-Input{
+.Form{
+    margin-bottom: 10px;
+
+}
+
+.Input , .Input_Content{
     color: black;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: large;
+    display: list-item;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    width: 250px;
+    height: 30px;
+}
+.Input_Content{
+    width: 250px;
+    height: 100px;
+    overflow: scroll;
 }
 
 .Add{

@@ -1,0 +1,166 @@
+.Auth{
+    /* margin: 20px; */
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing:border-box ;
+    /* text-align: center; */
+    box-shadow: 0 2px 3px solid rgb(207, 199, 199);
+
+    padding: 10px;
+    border: 3px solid rgb(44, 39, 39);
+    width: 80%; 
+    
+    display: list-item;
+     
+}
+.Auth p {
+    font-size: 1.5em;
+    text-align: center;
+}  
+
+.Form{
+    text-align: center; 
+}
+.Input {
+    display: list-item;
+    margin-top: 10px;  
+    margin-left: auto;
+    margin-right: auto;  
+    height: 1.5em;
+} 
+
+.Input:focus{
+    color: 1px  black; 
+    border: 2px solid rgb(57, 90, 75);
+    background-color: rgb(198, 233, 245);
+}
+.Lable{
+    text-align: center;
+}
+
+.Submit{ 
+    border: 3px solid rgb(50, 90, 177);
+    color: rgb(34, 31, 31);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    max-width: 10%;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+.Register , .Login{ 
+    border: 3px solid rgb(72, 97, 153);
+    color: rgb(34, 31, 31);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    /* max-width: 10%; */
+    border-radius: 8px;
+    margin-top: 20px;
+
+
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 24px; 
+    margin-left: 35px;
+}
+
+
+.Switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 24px;
+    margin-left: 35px;
+    
+  }
+  
+  .Switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0; 
+  }
+  
+  .Sliderround {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #71507d;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .Sliderround:before {
+    position: absolute;
+    content: "";
+    height: 22px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+    
+  }
+  
+  input:checked + .Sliderround {
+    background-color: #0f6db7;
+  }
+  
+  input:focus + .Sliderround {
+    box-shadow: 0 0 1px #0f6db7;
+  }
+  
+  input:checked + .Sliderround:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+ 
+  .Toggle P{
+    width: 20%; 
+      text-align: left;
+      font-size: 1em;
+      
+    margin-left: 2em;
+  }
+
+.Container{
+    
+    margin-bottom: 10%;
+    /* width: 250px; */
+}
+
+.Header{
+    text-align: center; 
+    font-size: 1.5em; 
+    float: left;    
+    /* margin-left: 38%; */
+    /* display:inline; */
+    left:49%;
+    width: max-content;
+    position: absolute;
+
+}
+
+.Toggle{
+    float: left;
+    width: 100px;
+    /* width: 10%; */
+    /* display:inline; */
+    margin:0
+}
+
+/* .Container{
+    display: inline;
+}
+.Container p:nth-child(1) {
+    width: 30%;
+    float: left;
+}
+.Container p:nth-child(2) {
+    width: 50%;
+    float: left;
+
+} */
