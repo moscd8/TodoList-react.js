@@ -7,20 +7,13 @@
     border: 2px solid rgb(243, 238, 238);
     / border-radius: 15px;  /
 } */
-   
+/*    
 .EditItem ul{
     height:200px;
     width:400px;
     border: 3px solid rgb(71, 71, 71);
 
-}
-/* 
-.EditItem2 ul{
-    height:200px;
-    width:400px; 
-    border: 2px solid red;
-} */
-
+} 
 .EditItem ul input{ 
     max-height: 100px;
     max-width: 350px;
@@ -43,8 +36,7 @@
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
-    -webkit-line-clamp: 2; /* number of lines to show */
-    -webkit-box-orient: vertical; 
+     -webkit-box-orient: vertical; 
     white-space: nowrap;
     
 }
@@ -58,4 +50,84 @@
     max-width: 350px;
     max-height: 50px;  
     margin-left: 10%;
+} */
+
+
+.EditItem{
+    height:350px;
+    width:500px;
+    border: 3px solid rgb(71, 71, 71);
+    background-color: rgb(118, 153, 118);
+    margin-left: auto;
+    margin-right: auto;
+    top:30%;
+    position: relative;
 }
+
+.EditItem p {
+    font-weight: bold;
+    text-align: center;
+    font-size: 1.2em;
+}
+.ULClass {
+    height:200px;
+    width:400px;
+    border: 3px solid rgb(71, 71, 71);
+    /* background-color: red; */
+    margin: 1em;
+
+}
+.ULClass input{ 
+    max-height: 100px;
+    max-width: 350px;
+    
+    font-weight: bold;
+    text-align: center;
+    text-decoration: underline;
+    text-transform: capitalize;   
+    background-color: transparent;
+    /* display: table-caption; */
+    border: none;    
+    font-size: 1.2em;
+}
+ 
+
+.ULClass textarea { 
+    text-decoration: unset;
+    text-align: left;
+    text-transform: lowercase;
+    font-style: italic; 
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* number of lines to show */
+    -webkit-box-orient: vertical; 
+    white-space: nowrap;
+    background-color: rgb(118, 153, 118);;
+    font-size: 1.2em;
+    border: 0;
+    margin-left: -1em;
+}
+
+
+.ULClass button{ 
+    border: 3px rgb(54, 49, 49); 
+    color: black;   
+    font-size: large;
+    background-color: rgb(82, 150, 88); 
+    border-radius: 10%;
+    height: 3em;
+    width: 4.2em;
+    margin-left: 10%;
+    margin-top: 1.7em;
+    margin-right: 20%;
+}
+
+/* .ULClass{ 
+    background-color: rgb(185, 195, 191);  
+    border: 2px solid rgb(12, 11, 11);
+    border-radius: 15px; 
+} */
+
+

@@ -108,9 +108,9 @@ const  TodoList = props => {
     };      
 
     const selectTodoItem =(selectTodoItem) => {
-        console.log('selectTodoItem');
-        console.log(selectTodoItem);
-        props.selectedItem(selectTodoItem);
+        // console.log('selectTodoItem');
+        // console.log(selectTodoItem);
+        // props.selectedItem(selectTodoItem);
     }
     
     let finishedItems=[];
@@ -176,7 +176,9 @@ const  TodoList = props => {
     // }
 
     tempEditIteam = <EditTodoItem item={editItem} onUpdate={updateItemFunc} />
+    console.log("The value of tempEditIteam is "); 
 
+    console.log(editItem); 
     return (
         <div className={classes.TodoList} > 
             <p>Change View to {toggleViewClass.list===0 ? 'List' : 'Table'} </p>

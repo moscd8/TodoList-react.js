@@ -32,32 +32,40 @@ const EditTodoItem = props => {
     } 
     
     let myTodoList =null
+    console.log(props.item);
     if(props.item){
         myTodoList=  
-        (<div className={classes.EditItem} key={props.item.id}>
-            <ul> 
+        (
+        // <div className={classes.ULClass}  key={props.item.id}>
+            <ul className={classes.ULClass} key={props.item.id}> 
                 <input 
                     type="text"   
                     defaultValue={props.item.title} 
                     onChange={event => setNewItemTitle(event.target.value)}
                 />
-                <input 
+                {/* <input 
                     type="text"   
                     defaultValue={props.item.content} 
                     onChange={event => setNewItemContent(event.target.value)}
-                /> 
+                />  */}
+                 <textarea  className={classes.Input_Content}
+                    cols="40"
+                    rows="7"
+                    value={newItemContent ? newItemContent:  props.item.content}
+                    onChange={event => setNewItemContent(event.target.value)}
+                />
               <button  onClick={() => updateFunc()}> Update</button>
               <button  onClick={() => updateFunc()}> Cancle</button>
             </ul>
 
-          </div>
+        //   </div>
           )
       };
 
 
     return (
-        <div>
-            <p> EditTodoItem </p> 
+        <div className={classes.EditItem}>
+            <p> Edit Selected Item </p> 
              {myTodoList ? myTodoList : null}
 
         </div>

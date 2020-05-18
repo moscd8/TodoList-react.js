@@ -12,6 +12,7 @@ import Auth from './component/Auth/Auth';
 import Logout from './component/Auth/Logout/Logout'
 import * as actions from './store/actions/auth';
 
+import Landing from './component/LendingPage/LendingPage'
 const App = (props) => {
   
   useEffect(() => {
@@ -24,6 +25,9 @@ const App = (props) => {
       <Route path="/auth" exact render={(props)=> <Auth  {...props}/>}/> 
       {/* <Route path="/" exact render={(props)=> <Item  {...props}/>}/>       */}
       <Route path="/home" exact component={Home}/>
+      <Route path="/"  exact render={(props)=> <Landing  {...props}/>}/>
+
+      
       {/* <Route path="/todolist" exact component={TodoList}/>  */}
       {/* <Route path="/stas" render={(props)=> <Statistics  {...props}/>}/>  */}
   </Switch>
@@ -33,11 +37,12 @@ const App = (props) => {
   routes= (
     <Switch>
       {/* <Route path="/auth" exact render={(props)=> <Auth  {...props}/>}/>  */}
-      <Route path="/" exact render={(props)=> <Item  {...props}/>}/>      
+      <Route path="/add" exact render={(props)=> <Item  {...props}/>}/>
       <Route path="/home" exact component={Home}/>
       <Route path="/todolist" exact component={TodoList}/> 
       <Route path="/stas" render={(props)=> <Statistics  {...props}/>}/>
-      <Route path="/logout" render={(props)=> <Logout  {...props}/>}/> 
+      <Route path="/logout" render={(props)=> <Logout  {...props}/>}/>       
+      <Route path="/"  exact render={(props)=> <Landing  {...props}/>}/>
       <Redirect to="/"/> 
   </Switch>
 

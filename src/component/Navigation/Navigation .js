@@ -43,6 +43,7 @@ const Navigation  = (props)=> {
           <li>
         <Link to={ROUTES.LOGOUT}>LOGOUT</Link>
         </li>
+         
       </ul>
     );
 
@@ -53,8 +54,7 @@ const Navigation  = (props)=> {
         </li>
         <li>
         <Link to={ROUTES.HOME}>Home</Link>
-        </li>
-
+        </li> 
     </ul>
 
     );
