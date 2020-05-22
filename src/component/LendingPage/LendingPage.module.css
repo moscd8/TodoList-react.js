@@ -2,73 +2,207 @@
 
     /* margin-left: auto;
     margin-right: auto; */
-    margin: 2em;
+    margin: 2px;
   
     text-align: center;
     font-size: 1.5em;
-    
+    /* height: 100vh;   */
+}
+.Main{
+    height: 90vh; 
+    background-image: url('../../shered/landingMain4.jpg');
+    background-size: cover;
+    background-position: center;
+
+}
+
+.Title {
+    border: #a2a2a5 solid 11px;
+    border-radius: 20px 13px 20px 19px;
+    width: 12em;
+    height: 1.9em;
+    color: white;
+    text-align: center;
+    font-size: 1.5em;
+    margin-left: auto;
+    margin-right: auto;
+    /* background-color: rgb(92, 89, 121); */
+    background-color: #56566c;
+
+}
+.Title p {
+    margin-top: 10px;
+}
+
+.ReadMore{
+    border: white solid 1px; 
+    border-radius:10px;
+    padding: 10px;
+    font-size: 20px;
+    background-color: #56566c;
+    color: white;
+    text-decoration: none;
+    position: absolute;  
+}
+
+.ReadMore:hover{
+    background-color: white;
+    color: #56566c;
 }
 
 .About{
-    /* margin-top: 5%; */
+    margin-top: 5%;
+    margin-right: auto;
+    margin-left: auto; 
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    color: white;
+    line-height: 1.5;
+    text-shadow: 1px 1px 1px #000;
+    font-weight: 600;
+    width: 50vw;
+    text-align: center; 
+    max-height: 30vh;
+
+} 
+  
+.About span{
+    font-weight: bolder; 
+    background-color: #39414e;
+    /* margin: 0; */
+    font-size: 1.5em;
+    
+   
+}
+
+/* .About span{ 
+    font-weight: 500;
+    margin-bottom: 20px;
+
+} */
+
+/* .About{
+    margin-top: 5%;
     margin-bottom: 20px;;
-    border: 2px solid rgb(75, 71, 71);
-    background-color: rgba(243, 243, 243, 0.897);
+    border: 2px solid rgb(75, 71, 71); 
+    background-color: #d6dbcd;
     padding-bottom: 20px;
 }
 .About p{
     font-weight: bolder;
-    color: rgb(243, 243, 243);
-    background-color: rgb(52, 109, 80);
+    color: rgb(243, 243, 243); 
+    background-color: #6c84ad;
     margin: 0;
+
 }
 
-.About span{
-    /* font-style: italic; */
+.About span{ 
     font-weight: 500;
     margin-bottom: 20px;
 
+} */
+.Benifits_Container p{
+    /* margin-bottom: 10px; */
+    
 }
-.Benifits{
-    margin-top: 5%;
-    margin-bottom: 5%;
-    border: 2px solid rgb(75, 71, 71);
-    background-color: rgba(243, 243, 243, 0.897);    
-    margin-top: 10px;
-
-}
-
-.Benifits p{
+.Benifits_Container_Header{
+    
     font-weight: bolder;
     color: rgb(243, 243, 243);
-    background-color: rgb(52, 109, 80);
-    margin: 0;
+    background-color: #6c84ad;
+ 
+    /* margin-top: 5%; */
 }
-.Benifits li{
-    text-align: left; 
-    margin-top: 10px; 
-    margin-bottom: 15px;   
-   
+.Benifits{
+    /* margin-top: 5%; */
+    margin-bottom: 5%;
+    /* border: 2px solid rgb(75, 71, 71); */
+    background-color: #d6dbcd;
+    margin-top: 10px;
+    max-width: 80vw;    
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+    /* list-style-type: none;   */
 }
+
+.Benifit_a {
+    border: 2px solid rgb(75, 71, 71);
+    margin-bottom: 5px;
+    margin-right: 10px; 
+    padding:  2px;
+    min-width: 20vw;  
+    /* min-height: 25vh; 
+    max-height: 50vh;     */
+    /* overflow: scroll; */
+    font-family: Arial, Helvetica, sans-serif;
+       
+}
+
+.Benifit_a:nth-child(1) p , .Benifit_a:nth-child(3) p{
+    font-size: 1.2em;
+    background-color: #1e2a2d;
+    color: white;
+}
+
+.Benifit_a:nth-child(2) p , .Benifit_a:nth-child(4) p{
+    font-size: 1.2em;
+    background-color: #6397a0;
+    color: white;
+}
+
+.Benifit_a p{
+    line-height: 2em;
+    font-size: 1.2em;
+    background-color: #437f77;
+    color: white;
+  
+}
+ 
+.Benifit_a:hover {
+    /* font-size: 1.2em; */
+    background-color: #7f7b8f;
+    border: 10px solid rgb(255, 244, 244);
+    color: white;
+}
+.Icon{
+    /* font-size: 1.2em; */
+
+    margin: 20px  auto 10px auto; 
+    /* margin-left: auto;
+    margin-right: auto; */
+    font-size: 2em;
+}
+/* svg:hover {
+    background-color: white;
+} */
 
 .Recommndetion{
     margin-top: 5%;
     margin-bottom: 5%;
     
     border: 2px solid rgb(75, 71, 71);
-    background-color: rgba(243, 243, 243, 0.897);
+    /* background-color: rgba(243, 243, 243, 0.897); */
+    background-color: #d6dbcd;
     
 }
 .Recommndetion p{
     font-weight: bolder;
     color: rgb(243, 243, 243);
-    background-color: rgb(52, 109, 80);
+    /* background-color: rgb(52, 109, 80); */
+    /* background-color: rgb(52, 109, 80); */
+    background-color: #6c84ad;
     margin: 0;
 }
 .Recommndetion li{
     text-align: left; 
     margin-top: 10px; 
     margin-bottom: 10px;   
+    list-style-type: none;  
+    padding-left: 10px;
 }
 
 
@@ -85,4 +219,8 @@
     color: rgb(243, 243, 243);
     background-color: rgb(52, 109, 80);
     margin: 0;
+}
+.SocialLinks a{
+    margin-right: 5px;
+    margin-left: 5px; 
 }
