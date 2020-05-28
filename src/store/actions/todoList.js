@@ -2,12 +2,16 @@ import * as actionTypes from './actionTypes';
 import axios from '../../axios-orders';
 import Item from '../../component/Item/Item';
 
-export const addtodoItem = (todoItem)=> { //V
+export const addtodoItem = (todoItem,token)=> { //V
 console.log('addtodoItem');
-console.log(todoItem); 
+console.log(todoItem);
+console.log('token');
+console.log(token); 
 
+//ADD: ?auth=' + token
 return dispatch => {
-    axios.post('https://todolist-80427.firebaseio.com/todolist.json',todoItem)
+    let url= 'https://todolist-80427.firebaseio.com/Items.json?auth='+ token;
+    axios.post(url,todoItem)
     .then(response => {
     console.log(response.data);
     let id= response.data.name;
@@ -38,11 +42,12 @@ export const addtodoItemFailed = (error)=> { //V
     };
 }
  
-export const deletetodoItem = (todoID)=> {  //V
+export const deletetodoItem = (todoID,token, userId)=> {  //V
     console.log('deletetodoItem');
     console.log(todoID); 
         return dispatch => {
-            let url  = 'https://todolist-80427.firebaseio.com/todolist/'+todoID+'.json'; 
+            const queryParams= '?auth=' + token ;
+            let url  = 'https://todolist-80427.firebaseio.com/Items/'+todoID+'.json'+queryParams; 
             axios.delete(url)
                 .then(res => {
                         console.log(res.data);
@@ -73,11 +78,13 @@ export const deletetodoItemFailed = (  error) =>{  //V
 
     
 
-export const finishtodoItem = (todoID)=> { //V
+export const finishtodoItem = (todoID, token, userId)=> { //V
     console.log('finishtodoItem');
     console.log(todoID); 
         return dispatch => {
-            let url  = 'https://todolist-80427.firebaseio.com/todolist/'+todoID+'/finished.json'; 
+
+            const queryParams= '?auth=' + token ;
+            let url  = 'https://todolist-80427.firebaseio.com/Items/'+todoID+'/finished.json' + queryParams; 
             axios.put(url,true)
                 .then(res => {
                         console.log(res.data);  
@@ -107,11 +114,12 @@ export const finishtodoItemFailed = (error) =>{  //V
 
 
 
-export const updatetodoItem = (todo)=> { //V
+export const updatetodoItem = (todo, token, userId)=> { //V
     console.log('updatetodoItem');
     console.log(todo);
     return dispatch => {
-    let url  = 'https://todolist-80427.firebaseio.com/todolist/'+todo.id+'.json'; 
+    const queryParams= '?auth=' + token ;
+    let url  = 'https://todolist-80427.firebaseio.com/Items/'+todo.id+'.json' + queryParams; 
     axios.put(url,todo)
     .then(res => {
         console.log(res.data);
@@ -143,22 +151,25 @@ export const updatetodoItemFailed = (error) =>{  //V
 
 
  
-export const fetchTodoList = ( )=> { //V
+export const fetchTodoList = (token,userId )=> { //V
     console.log('fetchTodoList');  
     return dispatch => {
-        dispatch(fetchTodoListStart()); 
-    axios.get('https://todolist-80427.firebaseio.com/todolist.json')
+        dispatch(fetchTodoListStart());
+        console.log("token")        
+        console.log(token)
+        const queryParams= '?auth=' + token + '&orderBy="userId"&equalTo="' + userId + '"';
+        axios.get('https://todolist-80427.firebaseio.com/Items.json'+ queryParams)
     .then(res => {
         console.log(res.data);
-        const fetchedOrders = [];
+        const fetchedtodoList = [];
         for(let key in res.data){
-            fetchedOrders.push({
+            fetchedtodoList.push({
                 ...res.data[key],
                 id:key
             });
         }
-        console.log(fetchedOrders); 
-        dispatch(fetchTodoListSuccess(fetchedOrders)); 
+        console.log(fetchedtodoList); 
+        dispatch(fetchTodoListSuccess(fetchedtodoList)); 
     })
     .catch(error => {
         console.log("Fail error:")

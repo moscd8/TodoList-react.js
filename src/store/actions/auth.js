@@ -11,7 +11,7 @@ export const authStart = () => {
 export const authSuccess = (userId,idToken) => {
     return {
         type:actionTypes.AUTH_SUCCESS,
-        idToken: idToken,
+        token: idToken,
         userId: userId
     }
 }
@@ -37,7 +37,7 @@ export const auth = (email,password, isSignup) => {
         const authData2 = {
             email: email,
             password: password,
-            returnSecureToken: false
+            returnSecureToken: true
         };
         console.log('auth: isSignup');
         console.log(isSignup);
@@ -79,7 +79,7 @@ export const logout = (userId, idToken)=> {
 
     return{
         type: actionTypes.AUTH_LOGOUT,
-        idToken: idToken,
+        token: idToken,
         userId: userId
     }
     
@@ -112,10 +112,26 @@ export const authCheckState = () => {
                 //
                 console.log('expirationDate is not expiared ');
 
-                dispatch(authSuccess(token,userId));
+                dispatch(authSuccess(userId,token));
                 dispatch(checkAuthTimeout(( Math.abs(expirationDate.getTime()- new Date().getTime())/1000)));
             }
         }
     }
 
+}
+
+export const getUserName = (userId) => {
+    return dispatch => {
+        let url ='https://identitytoolkit.googleapis.com/v1/accounts:onAuthStateChanged?key=AIzaSyCo1NYApckn2kNaej3yHcm8pYRCZyDIIRc';
+        axios.post(url)
+        .then(response  => {
+
+        }).catch(error=> {
+            console.log('error');
+            console.log(error);
+//            dispatch(authFail(error.response.data.error.message));
+        })
+    }
+
+    
 }

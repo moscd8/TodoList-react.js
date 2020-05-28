@@ -17,7 +17,7 @@ const  Auth = props => {
 
     const [email, Setemail] = useState('');
     const [password, Setpassword] = useState('');  
-    const [isSignup,setIsSignup]=useState(true);
+    const [isSignup,setIsSignup]=useState(false);
     const [errorMsg,setErrorMsg]=useState('');
     
     // useEffect(() => {
@@ -87,15 +87,17 @@ const  Auth = props => {
     // }
 
     return (
+        <div className={classes.AuthMain}>
+
         <div className={classes.Auth}>
              <div className={classes.Container}>
                 <div className={classes.Toggle}>
                     <p> {isSignup ? 'SIGNUP' : 'LOGIN'} </p>
                     <label className={classes.Switch}>
-                        <input  className={isSignup ?  classes.Login : classes.Register} type="checkbox" value={isSignup ?  'Regiter' : 'Login'} onClick={() => setIsSignup(!isSignup)}/>       
+                        <input  className={!isSignup ?  classes.Login : classes.Register} type="checkbox" value={isSignup ?  'Regiter' : 'Login'} onClick={() => setIsSignup(!isSignup)}/>       
                         <span className={classes.Sliderround}></span>
                     </label> 
-            </div>
+                 </div>
             <p className={classes.Header}>Auth</p>   
              </div>
             {authredirect}
@@ -121,6 +123,8 @@ const  Auth = props => {
             {loadingSpinner}
             </Backdrop>  
         </form>
+
+        </div>
 
         </div>
       );

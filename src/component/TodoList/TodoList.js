@@ -9,14 +9,10 @@ import axios from '../../axios-orders';
 import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
 import Spinner from '../Spinner/Spinner';
 
-// import { Redirect} from 'react-router-dom';
 const  TodoList = props => {
 
-    // const list = useSelector(state=>state.todoList);  
     const [editItem, setEditItem] = useState();
     const [showBackdrop,setBackdrop] = useState();
-    const [bodyBackroundClicked,setbodyBackroundClicked] = useState(); 
-    /** 0 is Table view , 1 is List */
     const [toggleViewClass,settoggleViewClass] = useState({
         list:0,
         done:0,
@@ -29,13 +25,13 @@ const  TodoList = props => {
     },[props.todoList]);
 
     useEffect(() => {  
-        props.onFetchTodoList(); 
+        props.onFetchTodoList(props.token, props.userId); 
     },[]); 
 
     const  deleteItem = (idToRemove) => {
         console.log('deleteItem'); 
         props.todoList.loading=true;
-        props.deleteItem(idToRemove);    
+        props.deleteItem(idToRemove, props.token, props.userId);    
     }
 
     const  markAsFinishItem = (idToDoDone) => {  
@@ -44,7 +40,7 @@ const  TodoList = props => {
         console.log(idToDoDone);
         
         props.todoList.loading=true;
-        props.finishItem(idToDoDone);
+        props.finishItem(idToDoDone,props.token, props.userId);
     }
 
     const  editItemFunc = (ToDoEdit) => {    
@@ -64,8 +60,7 @@ const  TodoList = props => {
         }
         setBackdrop(false); 
         setEditItem(UpdatedToDoItem);
-        props.updateItem(UpdatedToDoItem); 
-        // props.history.push('/'); 
+        props.updateItem(UpdatedToDoItem, props.token, props.userId); 
         
     };
     
@@ -132,17 +127,19 @@ const  TodoList = props => {
             tempArray[i]=props.todoList.todoList[k];
             i++;
         }
-        console.log(tempArray)
-       
+        if(tempArray[0]) {
+
+
+        console.log(tempArray)  
         tempArray.map(item=>(
-        item.finished ? (         
+        (typeof item.finished !== 'undefined' && item.finished) ? 
+        (      
         finishedItems.push(
         <ul  className={classes.ULClass} key={item.id} >
             <h3> {item.title}</h3>
             <h4>{item.content}</h4> 
             <button  className={classes.Delete} onClick={()=> deleteItem(item.id)}>Remove</button> 
             <button   className={classes.EditItem} onClick={()=> editItemFunc(item)}>Edit</button>
-
           </ul>  
         )) : (
             normalItems.push(
@@ -151,29 +148,12 @@ const  TodoList = props => {
                 <h4>{item.content}</h4>
                 <button  className={classes.Delete} onClick={()=> deleteItem(item.id)}>Remove</button>
                 <button  className={classes.Finish} onClick={()=> markAsFinishItem(item.id)}>Done</button>
-                <button  className={classes.EditItem} onClick={()=> editItemFunc(item)}>Edit</button>
-                {/* <button  className={classes.EditItem} onClick={()=> selectTodoItem(item)}>select</button> */}
-                
+                <button  className={classes.EditItem} onClick={()=> editItemFunc(item)}>Edit</button>               
             </ul>
             ))
-     ));
+            ));
+        }
     };
-
-    // let selectedItemToRender = null; 
-    // if(props.todoList.selectedItem){
-    //     selectedItemToRender = props.todoList.selectedItem.map(item=>(
-    //     <div className={classes.Selected}> 
-    //         <h3> {item.title}</h3> 
-    //         {        
-    //         setTimeout(()=> {
-    //         setSelectedItem('');
-    //         selectedItemToRender=null;
-    //         console.log('timeout reached');
-    //         },200)}
-    // </div>
-    // ))
-
-    // }
 
     tempEditIteam = editItem ? (<EditTodoItem item={editItem} onUpdate={updateItemFunc} />) :null;
     console.log("The value of tempEditIteam is "); 
@@ -209,17 +189,18 @@ const  TodoList = props => {
 
   const mapStateToProps = state => {
     return {
-      todoList: state.todoList 
+      todoList: state.todoList ,
+      token: state.auth.token,
+      userId: state.auth.userId
     };
   };
   
   const mapDispatchToProps = dispatch => {
     return {
-  //    onItemAdded : (todoList) => dispatch(actions.addtodoItem(todoList)),
-      deleteItem : (itemId) => dispatch(actions.deletetodoItem(itemId)), //V
-      finishItem : (itemId) => dispatch(actions.finishtodoItem(itemId)), //V
-      updateItem : (item) => dispatch(actions.updatetodoItem(item)), //V
-      onFetchTodoList : (s) => dispatch(actions.fetchTodoList(s)), //V
+      deleteItem : (itemId , token, userId) => dispatch(actions.deletetodoItem(itemId, token, userId)), 
+      finishItem : (itemId, token, userId) => dispatch(actions.finishtodoItem(itemId, token, userId)), 
+      updateItem : (item, token, userId) => dispatch(actions.updatetodoItem(item, token, userId)), 
+      onFetchTodoList : (token,userId) => dispatch(actions.fetchTodoList(token,userId)),
       selectedItem : (itemId) => dispatch(actions.selectedItem(itemId) )
   };
   };

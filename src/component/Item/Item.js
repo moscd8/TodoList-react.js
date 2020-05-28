@@ -32,6 +32,7 @@ const  Item = props => {
     } 
 
      const addItem = (evt) => { 
+      evt.preventDefault();
           if(newItemTitle  === "" || !newItemTitle.value.trim())
           return; 
           
@@ -42,17 +43,21 @@ const  Item = props => {
           // id:newItemTitle.id,
           title: newItemTitle.value,
           content: newItemContent,
-          finished: false
+          finished: false,
+          userId: props.userId
         }  
+   
+        setNewItemTitle({id:'' ,value: ''})
+        setNewItemContent('');
 
-        setNewItemTitle('');
-        setNewItemContent(''); 
         props.todoList.loading= true;
-        // setItemAdded((
-        //   <div className={classes.AddedNotification}> 
-        //       <p>Added</p>
-        //   </div>));
-        props.onItemAdded(tempItem);
+        setItemAdded((
+          <div className={classes.AddedNotification}> 
+              <p>Added</p>
+          </div>));
+        console.log("props.token: ");
+        console.log(props.token);
+        props.onItemAdded(tempItem, props.token);
       }
  
  
@@ -72,7 +77,7 @@ const  Item = props => {
          
         <div className={classes.Items}> 
         <h1> Add an Item</h1> 
-        <div className={classes.Form}>
+        <form className={classes.Form}>
         <input className={classes.Input}
             type="text" 
             placeholder="item title" 
@@ -96,7 +101,7 @@ const  Item = props => {
             onChange={event => setNewItemContent(event.target.value)}
         />
         <button className={(newItemTitle.value !== '' && newItemContent !== '')  ? classes.Add : classes.AddDisable } onClick={addItem }>  Add </button>  
-        </div>
+        </form>
         <Backdrop show={showBackdropFunc() } >
              {todoListLoading}
         </Backdrop>  
@@ -123,13 +128,15 @@ const  Item = props => {
 const mapStateToProps = state => {
   return {
     todoList: state.todoList,
-    auth : state.auth
+    auth : state.auth,
+    token: state.auth.token,
+    userId: state.auth.userId
   }
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    onItemAdded : (todoItem) => dispatch(actions.addtodoItem(todoItem)),
+    onItemAdded : (todoItem,token) => dispatch(actions.addtodoItem(todoItem,token)),
     onAuth : (email,password,isSignup) => dispatch(actions.auth(email,password,isSignup)) 
     // ,
     // deleteItem : (itemId) => dispatch(actions.deletetodoItem(itemId)),

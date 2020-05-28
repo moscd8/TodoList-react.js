@@ -1,0 +1,13 @@
+.PieChart{
+    /* height: 50vh !important; */
+    /* margin-left: auto;
+    margin-right: auto; */
+}
+
+svg {
+    height: 50vh !important;
+    /* margin-left: auto !important;
+    margin-right: auto !important; */
+    /* left: 50vh; */
+    margin: auto !important;
+}

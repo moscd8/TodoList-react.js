@@ -37,7 +37,7 @@ const LendingPage = props => {
                     <p><strong>Producative</strong></p>  you can manage your time and track after your prograss
                     {/* <br/> */}
                     <div className={classes.Icon}>
-                        <FontAwesomeIcon icon={faClock} size='lg' color="#7f7b8f"/> 
+                        <FontAwesomeIcon icon={faClock} size='lg' color="black"/> 
                     </div>
 
                 </div>
@@ -46,7 +46,7 @@ const LendingPage = props => {
                     <p><strong>Free</strong></p> 
                      you can use TODOLIST with no limit & without any Ads
                      <div className={classes.Icon}>
-                        <FontAwesomeIcon icon={faMoneyBillAlt} size='lg' color="greed"/> 
+                        <FontAwesomeIcon icon={faMoneyBillAlt} size='lg' color="black"/> 
                     </div>
                 </div>
 
@@ -54,7 +54,7 @@ const LendingPage = props => {
                    <p><strong>Keep Truck </strong></p> 
                    you can manage your TODOLIST anywhere online
                    <div className={classes.Icon}>
-                        <FontAwesomeIcon icon={faGlobeAfrica} size='lg' color="white"/> 
+                        <FontAwesomeIcon icon={faGlobeAfrica} size='lg' color="black"/> 
                     </div>
                 </div>
 
@@ -62,7 +62,7 @@ const LendingPage = props => {
                     <p><strong>Easy to Use </strong> </p>
                     you can manage your time and track after your prograss
                     <div className={classes.Icon}>
-                        <FontAwesomeIcon icon={faTasks} size='lg' color="#7f7b8f"/> 
+                        <FontAwesomeIcon icon={faTasks} size='lg' color="black"/> 
                     </div>
                 </div>
     

@@ -4,7 +4,8 @@
     padding: 10px;
     text-align: center;
     /* height: 800px; */
-    min-height: 950px;
+    /* min-height: 950px; */
+    min-height: 90vh;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: large;
     display: block;
@@ -23,13 +24,13 @@
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 20px;
-    width: 250px;
+    width: 300px;
     height: 30px;
 }
 .Input_Content{
-    width: 250px;
-    height: 100px;
-    overflow: scroll;
+    width: 300px;
+    height: 150px;
+    /* overflow: scroll; */
 }
 
 .Add{
@@ -133,26 +134,37 @@
     position: relative;
     animation-name: AddedAnimation;
     animation-duration: 4s;
+
 }
 
 
 @keyframes AddedAnimation { 
     0%{
-        color:black;
+       /* color:black; */
+        color:#56566c;
         border-radius: 2px white;
         font-style: italic; 
-        font-size: medium;
+        font-size: 1.3em;
          /* left:100px; */
         top:0px;
     }
- 
-    100%  {
-        color:black;
+    50%  {
+        color:#36364b;
+        /* color:black; */
         border-radius: 2px white;
         font-style: italic; 
-        font-size: medium;
+        font-size: 1.3em;
         /* left:100px;  */
         top:0px;  
-    }
+    } 
+    100%  {
+        color:#171722;
+        /* color:black; */
+        border-radius: 2px white;
+        font-style: italic; 
+        font-size: 1.3em;
+        /* left:100px;  */
+        top:0px;  
+    } 
     
   } 

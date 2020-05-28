@@ -41,8 +41,8 @@ const App = (props) => {
       <Route path="/home" exact component={Home}/>
       <Route path="/todolist" exact component={TodoList}/> 
       <Route path="/stas" render={(props)=> <Statistics  {...props}/>}/>
-      <Route path="/logout" render={(props)=> <Logout  {...props}/>}/>       
-      <Route path="/"  exact render={(props)=> <Home  {...props}/>}/>
+      <Route path="/logout" render={(props)=> <Logout  {...props}/>}/>
+      <Route path="/"  exact render={(props)=> <Landing  {...props}/>}/>       
       <Redirect to="/"/> 
   </Switch>
 

@@ -1,25 +1,45 @@
+.AuthMain{
+    background-image: url('../../shered/form_login1.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    /* opacity: 0.5; */    
+    /* filter: blur(1px);
+    -webkit-filter: blur(1px); */
+}
+
 .Auth{
-    /* margin: 20px; */
     margin-left: auto;
     margin-right: auto;
     box-sizing:border-box ;
-    /* text-align: center; */
     box-shadow: 0 2px 3px solid rgb(207, 199, 199);
 
     padding: 10px;
     border: 3px solid rgb(44, 39, 39);
-    width: 80%; 
+    width: 50%; 
     
-    display: list-item;
-     
+    background-image: none;
+    background-color: #d6dbcd;    
+    transform: translate(-50%, -50%);
+    position: absolute;
+    top: 50vh;
+    left: 50%;
+    filter: blur(none);
+    -webkit-filter: blur(0px);
+   
+    
 }
 .Auth p {
     font-size: 1.5em;
     text-align: center;
 }  
+.Auth:hover , .Auth:active {
+    border: 6px solid rgb(85, 81, 81);
+}
 
 .Form{
     text-align: center; 
+    background-image: none;
 }
 .Input {
     display: list-item;
