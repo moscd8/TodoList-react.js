@@ -8,9 +8,9 @@ import * as actions from '../../store/actions/index';
 
 const Navigation  = (props)=> {
 
-  useEffect(() => {
-    props.getUserName(props.userId);
-},[]);
+//   useEffect(() => {
+//     props.getUserName(props.userId);
+// },[]);
   
   // const [toggelToDarkMode,settoggelToDarkMode] = useState();
 
@@ -98,10 +98,10 @@ const mapStateToProps = state =>{
   };
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-      getUserName : (userId) => dispatch(actions.getUserName(userId))
-    };
-};
+// const mapDispatchToProps = dispatch => {
+//   return {
+//       getUserName : (userId) => dispatch(actions.getUserName(userId))
+//     };
+// };
 
-export default connect(mapStateToProps,mapDispatchToProps)(Navigation) ;
+export default connect(mapStateToProps)(Navigation) ;

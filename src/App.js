@@ -9,10 +9,10 @@ import TodoList from './component/TodoList/TodoList';
 import classes from './App.module.css';
 import Statistics from './component/Statistics/Statistics';
 import Auth from './component/Auth/Auth';
-import Logout from './component/Auth/Logout/Logout'
+import Logout from './component/Auth/Logout/Logout';
 import * as actions from './store/actions/auth';
+import Landing from './component/LendingPage/LendingPage';
 
-import Landing from './component/LendingPage/LendingPage'
 const App = (props) => {
   
   useEffect(() => {
@@ -42,7 +42,8 @@ const App = (props) => {
       <Route path="/todolist" exact component={TodoList}/> 
       <Route path="/stas" render={(props)=> <Statistics  {...props}/>}/>
       <Route path="/logout" render={(props)=> <Logout  {...props}/>}/>
-      <Route path="/"  exact render={(props)=> <Landing  {...props}/>}/>       
+      <Route path="/landing"  exact render={(props)=> <Landing  {...props}/>}/>       
+      <Route path="/"  exact render={(props)=> <Landing  {...props}/>}/>
       <Redirect to="/"/> 
   </Switch>
 

@@ -116,12 +116,11 @@ const  TodoList = props => {
     if(props.todoList.loading){
         todoListLoading =  (<p> Loading ...<Spinner /> </p>);
         console.log('Loading...')
-    }else{
-        
+    }else{        
         console.log('DONT Loading...')
     } 
 
-    if( props.todoList.todoList){ 
+    if(props.todoList.todoList){ 
         console.log(props.todoList.todoList);
         for(let k in props.todoList.todoList){
             tempArray[i]=props.todoList.todoList[k];
@@ -205,4 +204,4 @@ const  TodoList = props => {
   };
   };
 
-export default withRouter(connect(mapStateToProps,mapDispatchToProps)(withErrorHandler(TodoList,axios)));
+export default withRouter(connect(mapStateToProps,mapDispatchToProps)(withErrorHandler(TodoList)));

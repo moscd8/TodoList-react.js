@@ -119,19 +119,3 @@ export const authCheckState = () => {
     }
 
 }
-
-export const getUserName = (userId) => {
-    return dispatch => {
-        let url ='https://identitytoolkit.googleapis.com/v1/accounts:onAuthStateChanged?key=AIzaSyCo1NYApckn2kNaej3yHcm8pYRCZyDIIRc';
-        axios.post(url)
-        .then(response  => {
-
-        }).catch(error=> {
-            console.log('error');
-            console.log(error);
-//            dispatch(authFail(error.response.data.error.message));
-        })
-    }
-
-    
-}

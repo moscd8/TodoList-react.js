@@ -11,7 +11,7 @@ const LendingPage = props => {
             <div className={classes.Main}>
                 <p className={classes.Title}> MY TODO-LIST
                     <FontAwesomeIcon icon={faListAlt} size='lg' color="white" pull="center"/>
-                </p> 
+                </p>
                 <div className={classes.About}>
                  
                  <span>

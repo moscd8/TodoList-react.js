@@ -30,9 +30,9 @@
     background-color: #56566c;
 
 }
-.Title p {
+/* .Title p {
     margin-top: 10px;
-}
+} */
 
 .ReadMore{
     border: white solid 1px; 
@@ -42,7 +42,8 @@
     background-color: #56566c;
     color: white;
     text-decoration: none;
-    position: absolute;  
+    /* position: absolute;  
+    margin-left: auto; */
 }
 
 .ReadMore:hover{
