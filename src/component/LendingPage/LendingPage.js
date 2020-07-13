@@ -15,10 +15,7 @@ const LendingPage = props => {
                 <div className={classes.About}>
                  
                  <span>
-                     <p>Test</p>
-                 <p>About 
-                     
-                     </p>
+                 <p>About</p>
                      WITH TODOLIST YOU CAN ADD YOUR TODO ITEMS <br/>
                      AND STORE IT IN THE OUR SERVERS AND ACCESS IT <br/>ANYWHERE FOR FREE. 
                  </span>
