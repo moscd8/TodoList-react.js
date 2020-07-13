@@ -15,7 +15,8 @@ const LendingPage = props => {
                 <div className={classes.About}>
                  
                  <span>
-                 <p>About
+                     <p>Test</p>
+                 <p>About 
                      
                      </p>
                      WITH TODOLIST YOU CAN ADD YOUR TODO ITEMS <br/>
